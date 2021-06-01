@@ -7,12 +7,12 @@
 #   test.bat
 #
 # To download and run this script:
-#   @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://raw.github.com/webcoyote/linux-vm/master/INSTALL.ps1'))"
+#   @powershell -NoProfile -ExecutionPolicy Unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://raw.github.com/crocer211/linux-vm/master/INSTALL.ps1'))"
 #
 
 
 # Fail on errors
-$ErrorActionPreference = 'Stop'
+#$ErrorActionPreference = 'Stop'
 
 
 #-----------------------------------------------
