@@ -158,7 +158,7 @@ function InstallPackageManager () {
   }
 
   # Chocolatey already installed?
-  if (Test-Path "$Env:ChocolateyInstall\bin\cinst.bat") {
+  if (Test-Path "$Env:ChocolateyInstall\bin\choco.exe") {
     write-host "Skipping chocolatey package manager installation"
     return
   }
@@ -174,13 +174,13 @@ function InstallPackageManager () {
   # Install Chocolatey
   $url = 'http://chocolatey.org/install.ps1'
   iex ((new-object net.webclient).DownloadString($url))
-  VerifyInstallation cinst
+  VerifyInstallation choco
 
   # Chocolatey sets the global path; set it for this shell too
   $Env:Path += "$Env:ChocolateyInstall\bin"
 
   # Install packages to C:\Bin so the root directory isn't polluted
-  cinst binroot
+  choco install binroot
 }
 
 
@@ -232,7 +232,7 @@ function InstallVagrant () {
   }
 
   # We need to pin a version of vagrant that plays nice with the Berkshelf plugin
-  cinst vagrant -version 1.4.3
+  choco vagrant -version 1.4.3
   VerifyInstallation vagrant.bat --version
 }
 
@@ -263,7 +263,7 @@ function InstallVirtualBox () {
     write-host "Skipping VirtualBox installation"
     return
   }
-  cinst virtualbox
+  choco install virtualbox
 }
 
 function CloneLinuxVmRepository () {
